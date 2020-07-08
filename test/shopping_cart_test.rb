@@ -33,9 +33,14 @@ class ShoppingCartTest < Minitest::Test
     assert_equal [], shopping_cart.products
     assert_equal [product1], shopping_cart.add_product(product1)
     assert_equal [product1], shopping_cart.products
-    # require "pry"; binding.pry
     assert_equal [product1, product2], shopping_cart.add_product(product2)
     assert_equal [product1, product2], shopping_cart.products
+  end
+
+  def test_it_can_check_details
+    shopping_cart = ShoppingCart.new('King Soopers', '30items')
+    # require "pry"; binding.pry
+    assert_equal "{name: 'King Soopers', capacity: 30}", shopping_cart.details
   end
 
 
