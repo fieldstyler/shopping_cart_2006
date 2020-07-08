@@ -41,4 +41,12 @@ class ProductTest < Minitest::Test
     assert_equal 37.0, product1.total_price
     assert_equal 9.0, product2.total_price
   end
+
+  def test_it_is_hoarded
+    product = Product.new(:chips, 'flaming hot cheetos', 3.99, '4')
+    # require "pry"; binding.pry 
+    assert_equal false, product.is_hoarded?
+    product.hoard
+    assert_equal true, product.is_hoarded?
+  end
 end
